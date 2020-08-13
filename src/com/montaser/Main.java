@@ -1,16 +1,13 @@
 package com.montaser;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.text.NumberFormat;
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        int principal = (int) askNumber("Principal: ", 1000, 1_000_000);
-        float annualInterest = (float) askNumber("Annual rate: ", 1, 30);
-        byte years = (byte) askNumber("years: ", 1, 30);
+        int principal = (int) Console.askNumber("Principal: ", 1000, 1_000_000);
+        float annualInterest = (float) Console.askNumber("Annual rate: ", 1, 30);
+        byte years = (byte) Console.askNumber("years: ", 1, 30);
 
         printMortgage(principal, annualInterest, years);
         printRemaining(principal, annualInterest, years);
@@ -44,19 +41,6 @@ public class Main {
                 (Math.pow((1 + monthlyInterest), numberOfPayments) - 1 );
 
         return remainingAmount;
-    }
-
-    public static double askNumber (String prompt, int min, int max) {
-        Scanner scanner = new Scanner(System.in);
-        double value = 0;
-        while (true) {
-            System.out.print(prompt);
-            value = scanner.nextDouble();
-            if (value >= min && value <= max)
-                break;
-            System.out.println("Enter a value between " + min + " and " + max);
-        }
-        return value;
     }
 
     public static double calculateMortgage(int principal, float annualInterest, byte years) {
