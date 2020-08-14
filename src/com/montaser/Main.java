@@ -11,30 +11,4 @@ public class Main {
         MortgageReport.printRemaining(principal, annualInterest, years);
     }
 
-    public static double calculateMortgage(int principal, float annualInterest, byte years) {
-        final byte MONTHS_IN_YEAR = 12;
-        final byte PERCENT = 100;
-
-        int numberOfPayments = years * MONTHS_IN_YEAR;
-        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
-
-        double mortgage = principal
-                * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
-                / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
-        return mortgage;
-    }
-
-    public static double calculateRemainin(int principal, int month, float annualInterest, byte years) {
-        final byte MONTHS_IN_YEAR = 12;
-        final byte PERCENT = 100;
-
-        int numberOfPayments = years * MONTHS_IN_YEAR;
-        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
-
-        double remainingAmount = principal *
-                (Math.pow((1 + monthlyInterest), numberOfPayments) - (Math.pow((1 + monthlyInterest), month))) /
-                (Math.pow((1 + monthlyInterest), numberOfPayments) - 1);
-
-        return remainingAmount;
-    }
 }
