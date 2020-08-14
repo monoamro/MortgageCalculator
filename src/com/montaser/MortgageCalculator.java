@@ -37,4 +37,8 @@ public class MortgageCalculator {
 
         return remainingAmount;
     }
+
+    public int getYears() {
+        return years;
+    }
 }
