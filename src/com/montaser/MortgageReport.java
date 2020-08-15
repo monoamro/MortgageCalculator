@@ -4,7 +4,6 @@ import java.text.NumberFormat;
 
 public class MortgageReport {
 
-
     private MortgageCalculator calculator;
 
     public MortgageReport(MortgageCalculator calculator) {
@@ -20,10 +19,9 @@ public class MortgageReport {
 
     public void printRemaining() {
         System.out.println("REMAINING BALANCE: ");
-        for (int i = 1; i <= (calculator.getYears() * 12); i++) {
-            double remainingBalance = calculator.calculateRemainin(i);
-            String remainingFormatted = NumberFormat.getCurrencyInstance().format(remainingBalance);
-            System.out.println(remainingFormatted);
+        for (double balance : calculator.getRemainingBalance()) {
+            String balanceFormatted = NumberFormat.getCurrencyInstance().format(balance);
+            System.out.println(balanceFormatted);
         }
     }
 }
