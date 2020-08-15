@@ -47,8 +47,4 @@ public class MortgageCalculator {
             balances[i - 1] = calculateRemainin(i);
         return balances;
     }
-
-    public int getYears() {
-        return years;
-    }
 }
