@@ -21,9 +21,7 @@ public class MortgageReport {
 
     public void printRemaining() {
         System.out.println("REMAINING BALANCE: ");
-        for (double balance : calculator.getRemainingBalance()) {
-            String balanceFormatted = currency.format(balance);
-            System.out.println(balanceFormatted);
-        }
+        for (double balance : calculator.getRemainingBalance())
+            System.out.println(currency.format(balance));
     }
 }
